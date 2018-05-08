@@ -25,4 +25,5 @@ public interface DaoAccess {
     void InsertNewAnswer(Answer answer);
     @Query("select * from Answer")
     List<Answer> fetchAllAnswers();
+
 }

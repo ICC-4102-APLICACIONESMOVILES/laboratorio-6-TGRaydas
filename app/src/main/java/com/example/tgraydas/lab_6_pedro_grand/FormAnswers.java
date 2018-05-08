@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -24,9 +25,10 @@ import java.util.List;
 
 
 public class FormAnswers extends AppCompatActivity {
+
     private LocationManager locationManager;
     private LocationCallback locationCallback;
-    private GoogleApiClient mGoogleApiClient;
+
     private FusedLocationProviderClient fusedLocationProviderClient;
 
     @Override
@@ -40,6 +42,7 @@ public class FormAnswers extends AppCompatActivity {
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         locationCallback = new LocationCallback();
         startLocationUpdate();
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -91,10 +94,4 @@ public class FormAnswers extends AppCompatActivity {
         finish();
 
     }
-    private void startLocationUpdate(){
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            fusedLocationProviderClient.flushLocations();
-        }
-    }
-
 }
